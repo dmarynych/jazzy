@@ -1,0 +1,23 @@
+{
+  "name": "jazzy",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app",
+    "test": "mocha ./test --growl --watch",
+    "docs": "jsduck ./libs --output docs",
+    "coverage": "istanbul cover _mocha ./test",
+    "watch": "watchify ./frontend/scripts/main.js -o ./frontend/scripts/bundle.js"
+  },
+  "dependencies": {
+    "async": "*",
+    "lodash": "*",
+    "backbone": "*",
+    "sockjs": "~0.3.8"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "expect.js": "*"
+  }
+}

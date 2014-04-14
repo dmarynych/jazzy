@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css"/>
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css"/>
+
+    <style>
+        #map {
+            width:500px;
+            height:500px;
+            position:relative;
+            margin-left:300px;
+        }
+
+        [data-entity=snake] {
+            background-color: #a94442;
+            width: 50px;
+            height: 30px;
+            margin-top: 10px;
+            border-radius: 20%;
+
+            -webkit-transition: -webkit-transform, top, left 0.2s ease-in;
+        }
+
+        [data-entity=snake][data-direction=left],
+        [data-entity=snake][data-direction=right]{
+            -webkit-transform: rotate(0);
+        }
+        [data-entity=snake][data-direction=down],
+        [data-entity=snake][data-direction=up]{
+            -webkit-transform: rotate(90deg);
+        }
+
+        [data-tile=grass] {
+            background-color: #47a447;
+        }
+        [data-tile=wall] {
+            background-color: #282828;
+        }
+
+        .notransition {
+            -webkit-transition: none !important;
+            -moz-transition: none !important;
+            -o-transition: none !important;
+            -ms-transition: none !important;
+            transition: none !important;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/obelisk.js/build/obelisk.js"></script>
+<script src="http://cdn.sockjs.org/sockjs-0.3.min.js"></script>
+
+<script src="scripts/bundle.js"></script>
+</body>
+</html>
