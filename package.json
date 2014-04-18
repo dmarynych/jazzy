@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node app",
-    "test": "mocha ./test --growl --watch",
+    "test": "mocha ./test",
     "docs": "jsduck ./libs --output docs",
     "coverage": "istanbul cover _mocha ./test",
     "watch": "watchify ./frontend/scripts/main.js -o ./frontend/scripts/bundle.js"
