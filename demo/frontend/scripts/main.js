@@ -12,7 +12,7 @@ var game = {
         world.entities.on('add', game.onAddEntity);
         world.entities.on('change', game.onChangeEntity);
     },
-    getPos: function(point, size) {
+    getMapPos: function(point, size) {
         return {
             x: point.x * size,
             y: point.y * size
@@ -20,7 +20,7 @@ var game = {
     },
     onAddTile: function(tile) {
         var size = 50,
-            pos = game.getPos(tile.get('pos'), size);
+            pos = game.getMapPos(tile.get('pos'), size);
 
         $('<div></div>')
             .css({
@@ -41,10 +41,10 @@ var game = {
         $('[data-tile-pos='+ tile.get('pos').toString() +']')
             .attr('data-tile', tile.get('tileName'));
     },
-
     onAddEntity: function(entity) {
+        console.log(entity);
         var size = 50,
-            pos = game.getPos(entity.get('pos'), size);
+            pos = game.getMapPos(entity.getHeadPoint(), size);
         $('<div></div>')
             .css({
                 position: 'absolute',
@@ -61,8 +61,8 @@ var game = {
         var size = 50;
         $('[data-entity-id='+ entity.id +']')
             .css({
-                top: (entity.get('pos').x * size),
-                left: (entity.get('pos').y * size)
+                top: (entity.getHeadPoint().x * size),
+                left: (entity.getHeadPoint().y * size)
             })
             .attr('data-direction', entity.get('direction'));
         console.log('cht', entity.toJSON());

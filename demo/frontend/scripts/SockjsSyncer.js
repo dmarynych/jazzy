@@ -1,3 +1,5 @@
+var Snake = require('../../shared/entities/Snake');
+
 var SockjsSyncer = function(world) {
     this.connections = [];
     this.world = world;
@@ -15,7 +17,10 @@ var SockjsSyncer = function(world) {
 
         if(data.action === 'init') {
             world.map.tiles.add(data.tiles);
-            world.entities.add(data.entities);
+            _.each(data.entities, function(entityData) {
+                var ent = new Snake(entityData);
+                world.addEntity(ent);
+            });
         }
         else if(data.action === 'tile') {
             console.log('new tile', data);
@@ -35,7 +40,8 @@ var SockjsSyncer = function(world) {
                 entity.set(data.entity);
             }
             else {
-                world.entities.add(data.entity);
+                var ent = new Snake(data.entity);
+                world.addEntity(ent);
             }
         }
     };

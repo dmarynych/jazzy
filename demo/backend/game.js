@@ -21,5 +21,5 @@ var syncer = new SockjsSyncer(world);
 // 3. добавим змейку в мир
 world.addEntity(new Snake({
     id: 1,
-    pos: [0, 1]
+    body: [[0, 1], [0, 2]]
 }));

@@ -7,8 +7,7 @@
     "start": "node app",
     "test": "mocha ./test",
     "docs": "jsduck ./libs --output docs",
-    "coverage": "istanbul cover _mocha ./test",
-    "watch": "watchify ./frontend/scripts/main.js -o ./frontend/scripts/bundle.js"
+    "coverage": "istanbul cover _mocha ./test"
   },
   "dependencies": {
     "async": "*",
